@@ -2,13 +2,14 @@
 
 An analysis of real Medicare data on 30-day hospital readmissions for 3,055 U.S. hospitals. The project cleans two public CMS datasets with Python, loads them into a SQL database, and uses SQL to answer questions a hospital quality team or health insurer would ask: which conditions drive readmissions, which hospitals and states perform worse than expected, and whether hospital quality ratings and patient volume are related to readmission performance.
 
-**Tools:** Python (pandas, matplotlib) · SQL (SQLite) · Git
+I work in a clinical lab, so I wanted a project with real healthcare data instead of another practice dataset. Readmissions are something hospitals actually get penalized for, which made it a good fit.
+
+**Tools:** Python (pandas, matplotlib), SQL (SQLite), Git
 
 **Data:** [Centers for Medicare & Medicaid Services (CMS), Provider Data Catalog](https://data.cms.gov/provider-data/)
 - [Hospital Readmissions Reduction Program (HRRP), FY 2026](https://data.cms.gov/provider-data/dataset/9n3s-kdb3): readmission results for 6 conditions, performance period July 2021 – June 2024
 - [Hospital General Information](https://data.cms.gov/provider-data/dataset/xubh-q36u): hospital type, ownership, and CMS overall star rating
 
----
 
 ## Background
 
@@ -18,9 +19,8 @@ Under the Hospital Readmissions Reduction Program, Medicare reduces payments to 
 >
 > **ERR > 1** means more readmissions than expected for a hospital with similar patients (worse). **ERR < 1** means fewer (better).
 
----
 
-## Key Findings
+## Findings
 
 **1. Heart failure has the highest readmission rate.** The average hospital's predicted 30-day readmission rate for heart failure is 19.4%, nearly 1 in 5 patients, followed by COPD (18.0%) and pneumonia (15.6%). Hip/knee replacement is lowest at 5.5%.
 
@@ -44,9 +44,8 @@ Under the Hospital Readmissions Reduction Program, Medicare reduces payments to 
 
 **7. More than a third of the data can't be used, and it matters why.** 36.1% of hospital-condition results have no ERR: 17.8% because results were not available for the period, 17.2% because there were too few cases to report, and 1.1% because no cases met the criteria. Results suppressed for too few cases come from low-volume hospitals, so the averages here describe mid-size and large hospitals best.
 
----
 
-## Business Questions → SQL
+## Questions and Queries
 
 All queries are in [`sql/queries.sql`](sql/queries.sql), and each result is saved in [`results/`](results).
 
@@ -61,7 +60,6 @@ All queries are in [`sql/queries.sql`](sql/queries.sql), and each result is save
 | 7 | Does patient volume affect heart failure readmissions? | `NTILE(4)` window function for quartiles |
 | 8 | Which large hospitals have the lowest and highest heart failure ERR? | Two `RANK()` windows in one query |
 
----
 
 ## Data Cleaning
 
@@ -80,7 +78,6 @@ All queries are in [`sql/queries.sql`](sql/queries.sql), and each result is save
 | `readmissions` | 18,330 | One row per hospital per condition (3,055 hospitals × 6 conditions) |
 | `footnotes` | 9 | CMS footnote codes used in the data and their meaning |
 
----
 
 ## Limitations
 
@@ -90,7 +87,6 @@ All queries are in [`sql/queries.sql`](sql/queries.sql), and each result is save
 - **Maryland:** Maryland hospitals appear in the data but are waived from HRRP payment adjustments under the state's own payment model.
 - **Correlation, not causation:** for example, the volume finding does not show that higher volume causes better results.
 
----
 
 ## Project Structure
 
@@ -117,7 +113,6 @@ python3 build_database.py   # creates hospitals.db and data/clean/
 python3 run_analysis.py     # writes results/ and images/
 ```
 
----
 
 ## Related Projects
 
