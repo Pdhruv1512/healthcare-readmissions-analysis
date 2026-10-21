@@ -122,3 +122,10 @@ python3 run_analysis.py     # writes results/ and images/
 - [E-Commerce SQL Analysis](https://github.com/Pdhruv1512/ecommerce-sql-analysis)
 - [PostgreSQL Database Design & Administration](https://github.com/Pdhruv1512/ecommerce-postgres-dba)
 - [E-Commerce Sales Dashboard (Tableau)](https://github.com/Pdhruv1512/ecommerce-sales-dashboard)
+
+## What I Learned
+
+1. **Data cleaning:** Learned that real-world data isn't always ready to use. CMS had values like "Not Available" in numeric columns, so I used Python to convert them to NULL before analyzing the data in SQL.
+2. **SQL and databases:** Got better at writing SQL queries using LEFT JOIN, CTEs, GROUP BY, and RANK() to compare hospitals and find which ones performed better or worse.
+3. **Healthcare data:** Learned how Medicare uses the Excess Readmission Ratio (ERR) to measure hospital performance. For example, an ERR of 1.20 means the hospital's predicted readmission rate is 20% higher than expected.
+4. **Missing data and findings:** About 36% of the results had no ERR, mostly because data wasn't available or hospitals had too few cases. I was also surprised that New Jersey had the second-highest average ERR among states with at least 20 reporting hospitals.
