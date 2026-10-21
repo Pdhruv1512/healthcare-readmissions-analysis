@@ -1,0 +1,5 @@
+volume_quartile,hospitals,min_discharges,max_discharges,avg_err,pct_worse_than_expected
+1,579,31,143,1.0145,61.3
+2,579,143,274,1.0036,50.9
+3,579,275,490,1.0036,49.6
+4,579,490,3487,0.9938,43.2

@@ -1,0 +1,7 @@
+condition,hospitals_reported,avg_predicted_rate_pct,avg_expected_rate_pct,avg_err,hospitals_worse_than_expected,pct_worse_than_expected
+Heart failure,2621,19.38,19.35,1.0014,1282,48.9
+COPD,2323,18.0,17.98,1.0011,1097,47.2
+Pneumonia,2715,15.6,15.56,1.0015,1271,46.8
+Heart attack (AMI),1736,13.42,13.38,1.0018,862,49.7
+Bypass surgery (CABG),878,10.68,10.65,1.0018,438,49.9
+Hip/knee replacement,1447,5.49,5.46,1.004,693,47.9

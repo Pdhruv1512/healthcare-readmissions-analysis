@@ -1,0 +1,5 @@
+ownership_group,hospitals,avg_err,pct_rows_worse_than_expected
+For-profit,600,1.0143,54.2
+Government,385,1.0009,50.0
+Non-profit,1828,0.9984,46.1
+"Other (VA, DoD, Tribal)",5,0.9756,30.0

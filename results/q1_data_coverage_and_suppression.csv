@@ -1,0 +1,6 @@
+footnote,meaning,hospital_condition_rows,rows_with_err,pct_of_rows
+-,Reported (no footnote),11343,11343,61.9
+5,Results are not available for this reporting period.,3255,0,17.8
+1,The number of cases/patients is too few to report.,3150,0,17.2
+29,This measure was calculated using partial performance period data due to a CMS-approved exception.,377,377,2.1
+7,No cases met the criteria for this measure.,205,0,1.1

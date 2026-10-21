@@ -1,0 +1,6 @@
+* text=auto
+
+# Show SQL in the GitHub language bar
+*.sql linguist-detectable=true
+# Raw CMS data files are vendored, not source code
+data/** linguist-vendored
