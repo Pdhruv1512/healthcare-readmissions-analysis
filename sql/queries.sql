@@ -184,3 +184,20 @@ SELECT
 FROM ranked
 WHERE best_rank <= 5 OR worst_rank <= 5
 ORDER BY excess_readmission_ratio;
+
+
+-- 9. NEW JERSEY HEART FAILURE RANKING
+-- Business question: New Jersey ranked 2nd worst in the country. Which NJ
+-- hospitals do best and worst on heart failure readmissions?
+SELECT
+    r.facility_name,
+    h.city,
+    r.discharges,
+    r.excess_readmission_ratio AS err,
+    RANK() OVER (ORDER BY r.excess_readmission_ratio) AS rank_in_nj
+FROM readmissions r
+LEFT JOIN hospitals h ON h.facility_id = r.facility_id
+WHERE r.state = 'NJ'
+  AND r.condition = 'Heart failure'
+  AND r.excess_readmission_ratio IS NOT NULL
+ORDER BY err;

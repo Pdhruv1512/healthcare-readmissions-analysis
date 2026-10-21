@@ -38,6 +38,8 @@ Under the Hospital Readmissions Reduction Program, Medicare reduces payments to 
 
 ![ERR by state](images/err_by_state.png)
 
+**Closer look at New Jersey.** Within NJ, 40 of 60 hospitals had more heart failure readmissions than expected. Chilton Medical Center (0.80) did best and West Jersey Hospital (1.20) did worst.
+
 **6. Higher-volume hospitals have fewer excess heart failure readmissions.** Splitting hospitals into four equal groups by heart failure discharges, 61.3% of the lowest-volume hospitals (31–143 discharges) were worse than expected, compared with 43.2% of the highest-volume hospitals (490+ discharges).
 
 ![Heart failure volume](images/heart_failure_volume.png)
@@ -59,6 +61,7 @@ All queries are in [`sql/queries.sql`](sql/queries.sql), and each result is save
 | 6 | Which states perform best and worst? | `HAVING` minimum sample size, `RANK()` window function |
 | 7 | Does patient volume affect heart failure readmissions? | `NTILE(4)` window function for quartiles |
 | 8 | Which large hospitals have the lowest and highest heart failure ERR? | Two `RANK()` windows in one query |
+| 9 | How do New Jersey hospitals rank on heart failure? | `RANK()` within one state, `LEFT JOIN` for city |
 
 
 ## Data Cleaning
@@ -96,7 +99,7 @@ All queries are in [`sql/queries.sql`](sql/queries.sql), and each result is save
 │       ├── hospital_general_info.csv   # CMS Hospital General Information
 │       └── hrrp_fy2026.csv             # CMS HRRP FY 2026
 ├── sql/
-│   └── queries.sql                     # 8 business-question queries
+│   └── queries.sql                     # 9 business-question queries
 ├── build_database.py                   # cleans raw data -> hospitals.db
 ├── run_analysis.py                     # runs queries -> results/ and images/
 ├── results/                            # CSV output of each query
