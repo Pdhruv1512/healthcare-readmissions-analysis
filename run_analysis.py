@@ -145,7 +145,7 @@ def main():
         results[num] = rows
         out = os.path.join(RESULTS_DIR, f"q{num}_{slug(title)}.csv")
         with open(out, "w", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
+            writer = csv.writer(f, lineterminator="\n")
             writer.writerow(headers)
             writer.writerows(rows)
         print(f"Q{num} {title}: {len(rows)} rows -> {out}")
