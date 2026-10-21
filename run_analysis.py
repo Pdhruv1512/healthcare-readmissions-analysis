@@ -39,7 +39,8 @@ plt.rcParams.update({
 
 def load_queries(path):
     """Split queries.sql into (number, title, sql) using the '-- N. TITLE' headers."""
-    text = open(path, encoding="utf-8").read()
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
     matches = list(re.finditer(r"^-- (\d+)\. (.+)$", text, re.MULTILINE))
     queries = []
     for i, m in enumerate(matches):
